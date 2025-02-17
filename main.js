@@ -5,6 +5,9 @@ const MAX_HIT_COUNT = 5;
 let gameCompleted = false; 
 let targetWord = "Sword"; // the word to be solved in hangman
 
+
+// BIG NOTE: REMOVE ALL LOOPS IN THE CODE
+
 // FRONT-END FUNCTIONS ------------------------------------------------
 function startFailedEnd(){
 
@@ -17,6 +20,13 @@ function startAccomplisedEnd(){
 function update(){
 
 }
+
+function prepareGame(){ // dynamically add in the elements
+    for (let caIndex = 0; caIndex < CHARACTER_ARRAY.length; caIndex++){
+        let characterElement = document.createElement("div")
+        characterElement.setAttribute("id", ca)
+    }
+}
 // BACK-END FUNCTIONS -------------------------------------------------
 // .indexOf(a) < 0  : item was not found
 // .indexOf(a) >= 0 : item WAS found
@@ -28,7 +38,7 @@ function main(){
     let dissectedArray = targetWord.toLowerCase().split("");
     let currentCharArray = [];
    
-    while(!gameCompleted){
+    while (!gameCompleted){
         let key = "1234567890"; // random string so it won't bypass the check
 
         while (key.length > 1 && CHARACTER_ARRAY.indexOf(key) < 0){
@@ -72,23 +82,10 @@ function main(){
                     // less elements in the current array than the dissected.
         };
 
-        // for-loop to check if the current matches elements in the dissected
-        // tbh this might just be a redundant sanity check at this point (who gonna hack this lmao)
-        console.log("THE SANITY CHECK RAAAA!hhh!!!!!")
-        let correctCount = 0;
-        for (let ccaIndex = 0; ccaIndex < currentCharArray.length; ccaIndex++) {
-            if (dissectedArray.indexOf(key) >= 0){
-                correctCount++;
-            };
-        };
-
-        // DESTINED TO BE TRUE!!!!!!!!!!!!!!!!!!!!!!
-        if (correctCount == dissectedArray.length){
-            gameCompleted = true;
-            console.log("FINISH FINISH FINISSSSSHHHHHH!!!!!!")
-            alert("You've won. What now?")
-            continue; // to end the game
-        }; 
+        gameCompleted = true;
+        console.log("FINISH FINISH FINISSSSSHHHHHH!!!!!!")
+        alert("You've won. What now?")
+        continue; // to end the game
     };
 
     console.log("game ended!")
