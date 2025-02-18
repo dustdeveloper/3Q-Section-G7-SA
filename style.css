@@ -1,5 +1,30 @@
-.row {
+.column {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    width: 3em;
+}
+
+.table {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+}
+
+.column div {
+    height: 2em;
+    width: 2em;
+    margin: 0.5em;
+    background-color: green;
+
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#one {
+    background-color: antiquewhite;
+}
+
+#two {
+    background-color: red;
 }
