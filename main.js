@@ -6,7 +6,7 @@ let gameCompleted = false;
 let targetWord = "Sword".toLowerCase(); // the word to be solved in hangman
 
 let hitCount = 0;
-let correctCount = 0;
+let currentCharacters = [];
 
 // BIG NOTE: REMOVE ALL LOOPS IN THE CODE
 
@@ -19,8 +19,19 @@ function startAccomplisedEnd(){
 
 }
 
-function update(elementItem, Color){
+function updateLetter(letter, success){
+    let letterElement = document.getElementById(letter)
 
+    if (success){
+        letterElement.style.backgroundImage = "linear-gradient(green, green, rgba(0,0,0,0))"
+    } else {
+        letterElement.style.backgroundImage = "linear-gradient(red, red, rgba(0,0,0,0))"
+    }
+    // do code
+}
+
+function setBoardLetter(letter, index){
+    let letterElement = document.getElementById(index)
 }
 
 // BACK-END FUNCTIONS -------------------------------------------------
@@ -30,36 +41,34 @@ function update(elementItem, Color){
 
 function step(){ // stepping function to progress the game
     let key = prompt("What's your character (e.g. a, b, c)?");
-    if (key.length > 1 && CHARACTER_ARRAY.indexOf(key) < 0){
+    if (key.length > 1 || CHARACTER_ARRAY.indexOf(key) < 0){
         alert("This isn't valid.")
     }
-    // find the key in the document
-    let keyElement = document.getElementById(key)
 
     if (targetWord.indexOf(key) < 0){
         hitCount++;
-        // change the element css to red
+        updateLetter(key, false);
         console.log(hitCount)
         console.log("COULD NOT FIND A HIT IN THE TARGETWORD! ALERTING.")
-
-    } else if (targetWord.indexOf(key) >= 0) {
-        correctCount++;
-        // change the element css to green
+    } else if (targetWord.indexOf(key) >= 0 && currentCharacters.indexOf(key) < 0) {
+        currentCharacters.push(key);
+        updateLetter(key, true);
+        setBoardLetter(key, targetWord.indexOf(key))
         console.log("FOUND A HIT IN THE TARGETWORD! ALERTING.")
     } else {
         hitCount++;
-        console.log(hitCount)
+        console.log(hitCount);
         console.log("You've already got this correct answer. ALERTING.")
     };
 
     if (hitCount >= MAX_HIT_COUNT){
         console.log("GAME HAS COMPLETED. HITCOUNT HAS EXCEEDED MAX. ALERTING.")
-        alert("You've failed now.")
+        alert("You've failed now.");
         gameCompleted = true;
         return; // to end the game
     };
 
-    if (correctCount < targetWord.length) {
+    if (currentCharacters.length < targetWord.length) {
         console.log("CCA IS LESS THAN DA")
         return; // to continue the game
     };
