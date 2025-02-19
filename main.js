@@ -21,17 +21,18 @@ function startAccomplisedEnd(){
 
 function updateLetter(letter, success){
     let letterElement = document.getElementById(letter)
-
+    // rgb(104, 207, 135)
     if (success){
-        letterElement.style.backgroundImage = "linear-gradient(green, green, rgba(0,0,0,0))"
+        letterElement.style.backgroundImage = "linear-gradient(rgb(104, 207, 135), rgb(104, 207, 135), rgba(0,0,0,0))"
     } else {
-        letterElement.style.backgroundImage = "linear-gradient(red, red, rgba(0,0,0,0))"
+        letterElement.style.backgroundImage = "linear-gradient(rgb(207, 94, 94), rgb(207, 94, 94), rgba(0,0,0,0))"
     }
-    // do code
 }
 
 function setBoardLetter(letter, index){
-    let letterElement = document.getElementById(index)
+    let letterElement = document.getElementById(index);
+
+    letterElement.innerHTML = letter.toUpperCase();
 }
 
 // BACK-END FUNCTIONS -------------------------------------------------
