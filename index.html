@@ -5,7 +5,6 @@
     </head>
     <body>
         <script src="main.js"></script>
-        <button onclick="step()"> Press me!</button>
 
         <!-- CHARACTER COLUMN | 13 EACH -->
         <div class="wrapper">
@@ -20,38 +19,45 @@
 
             <div class="table">
                 <div class="row" id="one">
-                    <div id="a">A</div>
-                    <div id="b">B</div>
-                    <div id="c">C</div>
-                    <div id="d">D</div>
-                    <div id="e">E</div>
-                    <div id="f">F</div>
-                    <div id="g">G</div>
-                    <div id="h">H</div>
-                    <div id="i">I</div>
-                    <div id="j">J</div>
-                    <div id="k">K</div>
-                    <div id="l">L</div>
-                    <div id="m">M</div>
+                    <button onclick="step('a')" id="a">A</button>
+                    <button onclick="step('b')" id="b">B</button>
+                    <button onclick="step('c')" id="c">C</button>
+                    <button onclick="step('d')" id="d">D</button>
+                    <button onclick="step('e')" id="e">E</button>
+                    <button onclick="step('f')" id="f">F</button>
+                    <button onclick="step('g')" id="g">G</button>
+                    <button onclick="step('h')" id="h">H</button>
+                    <button onclick="step('i')" id="i">I</button>
+                    <button onclick="step('j')" id="j">J</button>
+                    <button onclick="step('k')" id="k">K</button>
+                    <button onclick="step('l')" id="l">L</button>
+                    <button onclick="step('m')" id="m">M</button>
                 </div>
                 <div class="row" id="two">
-                    <div id="n">N</div>
-                    <div id="o">O</div>
-                    <div id="p">P</div>
-                    <div id="q">Q</div>
-                    <div id="r">R</div>
-                    <div id="s">S</div>
-                    <div id="t">T</div>
-                    <div id="u">U</div>
-                    <div id="v">V</div>
-                    <div id="w">W</div>
-                    <div id="x">X</div>
-                    <div id="y">Y</div>
-                    <div id="z">Z</div>
+                    <button onclick="step('n')" id="n">N</button>
+                    <button onclick="step('o')" id="o">O</button>
+                    <button onclick="step('p')" id="p">P</button>
+                    <button onclick="step('q')" id="q">Q</button>
+                    <button onclick="step('r')" id="r">R</button>
+                    <button onclick="step('s')" id="s">S</button>
+                    <button onclick="step('t')" id="t">T</button>
+                    <button onclick="step('u')" id="u">U</button>
+                    <button onclick="step('v')" id="v">V</button>
+                    <button onclick="step('w')" id="w">W</button>
+                    <button onclick="step('x')" id="x">X</button>
+                    <button onclick="step('y')" id="y">Y</button>
+                    <button onclick="step('z')" id="z">Z</button>
                 </div>
             </div>
 
+            <div class="background">
+                <div id="l5"></div>
+                <div id="l4"></div>
+                <div id="l3"></div>
+                <div id="l2"></div>
+                <div id="l1"></div>
+            </div>
         </div>
-
+        <button id="stepper" onclick="step()">Enter a letter</button>
     </body>
 </html>

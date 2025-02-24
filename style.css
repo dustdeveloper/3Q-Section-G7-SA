@@ -1,10 +1,14 @@
+body {
+    background-color: rgb(43, 0, 0);
+}
+
 .row2 {
     display: flex;
     height: 4em;
     justify-content: center;
 
     top: 0.8em;
-    z-index: 100;
+    z-index: 1;
 
     position: relative;
 }
@@ -25,7 +29,7 @@
     flex-direction: column;
     justify-content: center;
 
-    z-index: -100;
+    z-index: -1;
 }
 
 .row {
@@ -37,17 +41,58 @@
     position: relative;
 }
 
-.row > div {
+.row > button {
+
     height: 3em;
     width: 5em;
     margin: 0.5em;
+    inset: 0;
 
-    background-image: linear-gradient(gray, gray, rgba(0,0,0,0));
     border-radius: 0.3em;
+    background-image: linear-gradient(rgb(224, 224, 224), rgba(0,0,0,0));
 
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+}
+
+.background {
+    height: 8em;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    z-index: -2;
+    position: relative;
+    top: -11em;
+}
+
+.background * {
+    background-color: rgb(59, 25, 25);
+
+    flex-grow: 1;
+    margin: 0.1em;
+}
+
+#stepper {
+    position: fixed;
+    bottom: 10px;
+    padding: 5px;
+
+    border-radius: 0.3em;
+
+    background-color: aquamarine;
+}
+
+button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 /* #one {
