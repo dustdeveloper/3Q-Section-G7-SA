@@ -113,15 +113,6 @@ function setBoardLetter(letter, index){
     letterElement.innerHTML = letter.toUpperCase();
 }
 
-function updateHitVisual(count){
-    if (count == 0){
-        return
-    }
-
-    let bar = document.getElementById("l"+count);
-    bar.style.opacity = 0
-}
-
 // BACK-END FUNCTIONS -------------------------------------------------
 // .indexOf(a) < 0  : item was not found
 // .indexOf(a) >= 0 : item WAS found
@@ -160,8 +151,6 @@ function step(possibleKey){ // stepping function to progress the game
         console.log(hitCount);
         console.log("You've already got this correct answer. ALERTING.")
     };
-
-    updateHitVisual(hitCount);
 
     if (hitCount >= MAX_HIT_COUNT){
         console.log("GAME HAS COMPLETED. HITCOUNT HAS EXCEEDED MAX. ALERTING.")

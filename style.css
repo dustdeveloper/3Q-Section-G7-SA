@@ -85,6 +85,17 @@ body {
     background-color: aquamarine;
 }
 
+#hangman {
+    background-image: url(assets/images/0.PNG) ;
+    background-size: contain;
+
+    width: 50em;
+    height: 50em;
+
+    position: relative;
+    margin: auto;
+}
+
 button {
     background: none;
 	color: inherit;
