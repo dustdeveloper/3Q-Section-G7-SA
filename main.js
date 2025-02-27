@@ -96,6 +96,35 @@ function changeLetterColor(color) {
     document.getElementById("z").style.backgroundImage = "linear-gradient("+color+", "+color+", rgba(0,0,0,0))";
 }
 
+function restartNotice(){
+    document.getElementById("a").innerHTML = "R"
+    document.getElementById("b").innerHTML = "e"
+    document.getElementById("c").innerHTML = "s"
+    document.getElementById("d").innerHTML = "t"
+    document.getElementById("e").innerHTML = "a"
+    document.getElementById("f").innerHTML = "r"
+    document.getElementById("g").innerHTML = "t"
+    document.getElementById("h").innerHTML = "."
+    document.getElementById("i").innerHTML = "t"
+    document.getElementById("j").innerHTML = "h"
+    document.getElementById("k").innerHTML = "e"
+    document.getElementById("l").innerHTML = "."
+    document.getElementById("m").innerHTML = "g"
+    document.getElementById("n").innerHTML = "a"
+    document.getElementById("o").innerHTML = "m"
+    document.getElementById("p").innerHTML = "e"
+    document.getElementById("q").innerHTML = "."
+    document.getElementById("r").innerHTML = "b"
+    document.getElementById("s").innerHTML = "y"
+    document.getElementById("t").innerHTML = "."
+    document.getElementById("u").innerHTML = "r"
+    document.getElementById("v").innerHTML = "e"
+    document.getElementById("w").innerHTML = "l"
+    document.getElementById("x").innerHTML = "o"
+    document.getElementById("y").innerHTML = "a"
+    document.getElementById("z").innerHTML = "d" 
+}
+
 function updateLetter(letter, success){
     let letterElement = document.getElementById(letter)
     // rgb(104, 207, 135)
@@ -116,9 +145,6 @@ function updateHitVisual(){
     visualHangman.style.backgroundImage = "url(assets/images/"+hitCount+".png)";
 }
 // BACK-END FUNCTIONS -------------------------------------------------
-// .indexOf(a) < 0  : item was not found
-// .indexOf(a) >= 0 : item WAS found
-// note: console logs and alerts are not semi-colon'ed. please fix later
 
 function step(possibleKey){ // stepping function to progress the game
     let key = possibleKey
@@ -139,6 +165,7 @@ function step(possibleKey){ // stepping function to progress the game
 
     if (hitCount >= MAX_HIT_COUNT){
         startFailedEnd();
+        restartNotice();
         return; // to end the game
     };
 
@@ -146,6 +173,7 @@ function step(possibleKey){ // stepping function to progress the game
         return; // to continue the game
     };
 
+    restartNotice();
     startAccomplisedEnd();
     return; // to end the game
 }
