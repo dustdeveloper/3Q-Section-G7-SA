@@ -7,7 +7,7 @@ body {
     height: 4em;
     justify-content: center;
 
-    top: 0.8em;
+    top: 9em;
     z-index: 1;
 
     position: relative;
@@ -19,6 +19,8 @@ body {
 
     opacity: 0.5;
     text-align: center;
+
+    color: antiquewhite;
     font-size: 7em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
@@ -75,22 +77,14 @@ body {
     margin: 0.1em;
 }
 
-#stepper {
-    position: fixed;
-    bottom: 10px;
-    padding: 5px;
-
-    border-radius: 0.3em;
-
-    background-color: aquamarine;
-}
-
 #hangman {
-    background-image: url(assets/images/0.PNG) ;
+    background-image: url(assets/images/0.PNG);
     background-size: contain;
 
-    width: 50em;
-    height: 50em;
+    width: 15em;
+    height: 15em;
+    left: 1.3em;
+    top: -4em;
 
     position: relative;
     margin: auto;
