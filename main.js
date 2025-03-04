@@ -141,6 +141,10 @@ function setBoardLetter(letter, index){
 }
 
 function updateHitVisual(){
+    if (hitCount > MAX_HIT_COUNT){
+        hitCount = MAX_HIT_COUNT
+    };
+    
     let visualHangman = document.getElementById("hangman");
     visualHangman.style.backgroundImage = "url(assets/images/"+hitCount+".png)";
 }
