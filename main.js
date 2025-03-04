@@ -15,14 +15,15 @@ function startFailedEnd(){
     let item4 = document.getElementById("4");
 
     item0.style.color = "rgb(207, 94, 94)";
-    item0.style.opacity = 1;
     item1.style.color = "rgb(207, 94, 94)";
-    item1.style.opacity = 1;
     item2.style.color = "rgb(207, 94, 94)";
-    item2.style.opacity = 1;
     item3.style.color = "rgb(207, 94, 94)";
-    item3.style.opacity = 1;
     item4.style.color = "rgb(207, 94, 94)";
+
+    item0.style.opacity = 1;
+    item1.style.opacity = 1;
+    item2.style.opacity = 1;
+    item3.style.opacity = 1;
     item4.style.opacity = 1;
 
     item0.style.textShadow = "rgba(255,255,255,1) 0px 0px 38px";
@@ -48,14 +49,15 @@ function startAccomplisedEnd(){
     let item4 = document.getElementById("4");
 
     item0.style.color = "rgb(104, 207, 135)";
-    item0.style.opacity = 1;
     item1.style.color = "rgb(104, 207, 135)";
-    item1.style.opacity = 1;
     item2.style.color = "rgb(104, 207, 135)";
-    item2.style.opacity = 1;
     item3.style.color = "rgb(104, 207, 135)";
-    item3.style.opacity = 1;
     item4.style.color = "rgb(104, 207, 135)";
+
+    item0.style.opacity = 1;
+    item1.style.opacity = 1;
+    item2.style.opacity = 1;
+    item3.style.opacity = 1;
     item4.style.opacity = 1;
 
     item0.style.textShadow = "rgba(255,255,255,1) 0px 0px 38px";
@@ -97,42 +99,41 @@ function changeLetterColor(color) {
 }
 
 function restartNotice(){
-    document.getElementById("a").innerHTML = "R"
-    document.getElementById("b").innerHTML = "e"
-    document.getElementById("c").innerHTML = "s"
-    document.getElementById("d").innerHTML = "t"
-    document.getElementById("e").innerHTML = "a"
-    document.getElementById("f").innerHTML = "r"
-    document.getElementById("g").innerHTML = "t"
-    document.getElementById("h").innerHTML = "."
-    document.getElementById("i").innerHTML = "t"
-    document.getElementById("j").innerHTML = "h"
-    document.getElementById("k").innerHTML = "e"
-    document.getElementById("l").innerHTML = "."
-    document.getElementById("m").innerHTML = "g"
-    document.getElementById("n").innerHTML = "a"
-    document.getElementById("o").innerHTML = "m"
-    document.getElementById("p").innerHTML = "e"
-    document.getElementById("q").innerHTML = "."
-    document.getElementById("r").innerHTML = "b"
-    document.getElementById("s").innerHTML = "y"
-    document.getElementById("t").innerHTML = "."
-    document.getElementById("u").innerHTML = "r"
-    document.getElementById("v").innerHTML = "e"
-    document.getElementById("w").innerHTML = "l"
-    document.getElementById("x").innerHTML = "o"
-    document.getElementById("y").innerHTML = "a"
-    document.getElementById("z").innerHTML = "d" 
+    document.getElementById("a").innerHTML = "R";
+    document.getElementById("b").innerHTML = "e";
+    document.getElementById("c").innerHTML = "s";
+    document.getElementById("d").innerHTML = "t";
+    document.getElementById("e").innerHTML = "a";
+    document.getElementById("f").innerHTML = "r";
+    document.getElementById("g").innerHTML = "t";
+    document.getElementById("h").innerHTML = ".";
+    document.getElementById("i").innerHTML = "t";
+    document.getElementById("j").innerHTML = "h";
+    document.getElementById("k").innerHTML = "e";
+    document.getElementById("l").innerHTML = ".";
+    document.getElementById("m").innerHTML = "g";
+    document.getElementById("n").innerHTML = "a";
+    document.getElementById("o").innerHTML = "m";
+    document.getElementById("p").innerHTML = "e";
+    document.getElementById("q").innerHTML = ".";
+    document.getElementById("r").innerHTML = "b";
+    document.getElementById("s").innerHTML = "y";
+    document.getElementById("t").innerHTML = ".";
+    document.getElementById("u").innerHTML = "r";
+    document.getElementById("v").innerHTML = "e";
+    document.getElementById("w").innerHTML = "l";
+    document.getElementById("x").innerHTML = "o";
+    document.getElementById("y").innerHTML = "a";
+    document.getElementById("z").innerHTML = "d";
 }
 
 function updateLetter(letter, success){
-    let letterElement = document.getElementById(letter)
-    // rgb(104, 207, 135)
+    let letterElement = document.getElementById(letter);
     if (success){
         letterElement.style.backgroundImage = "linear-gradient(rgb(104, 207, 135), rgb(104, 207, 135), rgba(0,0,0,0))";
     } else {
         letterElement.style.backgroundImage = "linear-gradient(rgb(207, 94, 94), rgb(207, 94, 94), rgba(0,0,0,0))";
-    }
+    };
 }
 
 function setBoardLetter(letter, index){
@@ -142,25 +143,23 @@ function setBoardLetter(letter, index){
 
 function updateHitVisual(){
     if (hitCount > MAX_HIT_COUNT){
-        hitCount = MAX_HIT_COUNT
+        hitCount = MAX_HIT_COUNT;
     };
-    
+
     let visualHangman = document.getElementById("hangman");
     visualHangman.style.backgroundImage = "url(assets/images/"+hitCount+".png)";
 }
 // BACK-END FUNCTIONS -------------------------------------------------
 
 function step(possibleKey){ // stepping function to progress the game
-    let key = possibleKey
-
-    if (targetWord.indexOf(key) < 0){
+    if (targetWord.indexOf(possibleKey) < 0){
         hitCount++;
-        updateLetter(key, false);
+        updateLetter(possibleKey, false);
         updateHitVisual();
-    } else if (targetWord.indexOf(key) >= 0 && currentCharacters.indexOf(key) < 0) {
-        currentCharacters.push(key);
-        updateLetter(key, true);
-        setBoardLetter(key, targetWord.indexOf(key));
+    } else if (targetWord.indexOf(possibleKey) >= 0 && currentCharacters.indexOf(possibleKey) < 0) { 
+        currentCharacters.push(possibleKey);
+        updateLetter(possibleKey, true);
+        setBoardLetter(possibleKey, targetWord.indexOf(possibleKey));
     } else {
         hitCount++;
         console.log(hitCount);
